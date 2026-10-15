@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="sl">
 <head>
@@ -5,28 +6,131 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pr nas se nč ne dogaja</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 60px auto;
-      padding: 20px;
-      background: #f5f5f5;
-      color: #222;
+    * {
+      box-sizing: border-box;
     }
-    h1 { color: #176b55; }
-    .panel {
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f6f5f0;
+      color: #252820;
+    }
+
+    header {
+      background: #263d32;
+      color: white;
+      padding: 42px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 12px;
+      font-size: clamp(30px, 5vw, 48px);
+    }
+
+    header p {
+      margin: 0;
+      font-size: 17px;
+      color: #e0e8df;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .search-panel {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 12px;
       background: white;
-      padding: 24px;
+      padding: 20px;
       border-radius: 12px;
+      box-shadow: 0 3px 15px #0000000d;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d5d8d1;
+      border-radius: 7px;
+      font-size: 15px;
+    }
+
+    button {
+      background: #d8e5b5;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    h2 {
+      margin-top: 35px;
+    }
+
+    .empty-state {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #62685f;
+      font-size: 14px;
+    }
+
+    @media (max-width: 650px) {
+      .search-panel {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="panel">
+  <header>
     <h1>Pr nas se nč ne dogaja</h1>
-    <p>Odkrij dogodke po vsej Sloveniji.</p>
-    <p>Koncerti, delavnice, pohodi, sejmi in lokalne prireditve in... še kaj</p>
-    <p>To je prva različica naše spletne strani.</p>
-  </div>
+  </header>
+
+  <main>
+    <section class="search-panel">
+      <input id="search" type="search"
+        placeholder="Kaj te zanima? Npr. koncert, pohod ...">
+
+      <select id="location">
+        <option value="">Vsa Slovenija</option>
+        <option>Ljubljana</option>
+        <option>Maribor</option>
+        <option>Celje</option>
+        <option>Kranj</option>
+        <option>Koper</option>
+        <option>Nova Gorica</option>
+        <option>Drugo</option>
+      </select>
+
+      <input id="date" type="date">
+    </section>
+
+    <h2>Prihajajoči dogodki</h2>
+
+    <section class="empty-state">
+      <h3>Tu se bo nekaj dogajalo.</h3>
+      <p>
+        Zbiramo dogodke iz vse Slovenije,
+        od koncertov in pohodov do vaških veselic,
+        delavnic in manjših lokalnih prireditev.
+      </p>
+      <p>Seznam dogodkov bomo dodali v naslednjih korakih.</p>
+    </section>
+  </main>
+
+  <footer>
+    Pr nas se nč ne dogaja · Slovenija
+  </footer>
 </body>
 </html>
